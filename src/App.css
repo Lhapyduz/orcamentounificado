@@ -1,0 +1,517 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container input {
+  width: 100%;
+  max-width: 550px;
+}
+
+.saved-products {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-container {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.calculate-btn, .save-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculate-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.calculate-btn:hover {
+  background-color: #2980b9;
+}
+
+.save-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #27ae60;
+}
+
+.result-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.order-details p {
+  margin: 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.order-details p strong {
+  color: #34495e;
+  font-weight: 600;
+}
+
+.final-price, .price-per-unit {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.final-price {
+  color: #1a7740;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2c3e50;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark .theme-toggle {
+  color: #fff;
+}
+
+.dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dark .app-container {
+  background-color: #2d2d2d;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark input {
+  background-color: #3d3d3d;
+  border-color: #4d4d4d;
+  color: #fff;
+}
+
+.dark input:focus {
+  border-color: #646cff;
+}
+
+.dark label {
+  color: #fff;
+}
+
+.dark .calculate-btn {
+  background-color: #646cff;
+}
+
+.dark .calculate-btn:hover {
+  background-color: #535bf2;
+}
+
+.dark .save-btn {
+  background-color: #2ecc71;
+}
+
+.dark .save-btn:hover {
+  background-color: #27ae60;
+}
+
+.dark .saved-product-item {
+  background-color: #3d3d3d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .product-info p {
+  color: #fff;
+}
+
+.dark .product-info p strong {
+  color: #fff;
+}
+
+.saved-product-item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-info p {
+  margin: 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.product-info p strong {
+  color: #34495e;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.app-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-container {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.result-container {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.final-price {
+  color: #27ae60;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+.saved-products {
+  margin-top: 2rem;
+}
+
+.saved-products h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2c3e50;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark .theme-toggle {
+  color: #fff;
+}
+
+.dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dark .app-container {
+  background-color: #2d2d2d;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark input {
+  background-color: #3d3d3d;
+  border-color: #4d4d4d;
+  color: #fff;
+}
+
+.dark input:focus {
+  border-color: #646cff;
+}
+
+.dark label {
+  color: #fff;
+}
+
+.dark .calculate-btn {
+  background-color: #646cff;
+}
+
+.dark .calculate-btn:hover {
+  background-color: #535bf2;
+}
+
+.dark .save-btn {
+  background-color: #2ecc71;
+}
+
+.dark .save-btn:hover {
+  background-color: #27ae60;
+}
+
+.dark .saved-product-item {
+  background-color: #3d3d3d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .product-info p {
+  color: #fff;
+}
+
+.dark .product-info p strong {
+  color: #fff;
+}
+
+.saved-product-item {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.saved-product-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-info p {
+  margin: 0.7rem 0;
+  color: #4a5568;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-info p strong {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.product-info p:last-child {
+  color: #2ecc71;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.1);
+}
+
+.saved-product-item {
+  position: relative;
+  display: block;
+}
