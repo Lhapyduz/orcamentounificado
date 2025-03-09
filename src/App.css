@@ -318,7 +318,7 @@ input:focus {
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  transform: scale(1.2);
 }
 
 .logo {
@@ -599,10 +599,9 @@ h2 {
 }
 
 .delete-btn {
-  background-color: #e74c3c;
-  color: white;
+  background-color: transparent;
+  color: #e74c3c;
   border: none;
-  border-radius: 50%;
   width: 36px;
   height: 36px;
   font-size: 1.4rem;
@@ -617,8 +616,8 @@ h2 {
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
-  transform: scale(1.1);
+  color: #c0392b;
+  transform: scale(1.2);
 }
 
 .saved-product-item {
