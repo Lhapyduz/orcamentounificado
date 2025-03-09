@@ -104,6 +104,32 @@ input:focus {
   background-color: #27ae60;
 }
 
+.export-btn {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-btn:hover {
+  background-color: #d35400;
+}
+
+.share-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.share-btn:hover {
+  background-color: #27ae60;
+}
+
 .result-container {
   background-color: white;
   padding: 1rem;
@@ -197,6 +223,48 @@ input:focus {
 }
 
 .dark .save-btn:hover {
+  background-color: #27ae60;
+}
+
+.dark .export-btn {
+  background-color: #e67e22;
+}
+
+.dark .export-btn:hover {
+  background-color: #d35400;
+}
+
+.dark .share-btn {
+  background-color: #2ecc71;
+}
+
+.dark .share-btn:hover {
+  background-color: #27ae60;
+}
+
+.export-btn {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-btn:hover {
+  background-color: #d35400;
+}
+
+.share-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.share-btn:hover {
   background-color: #27ae60;
 }
 
@@ -427,6 +495,48 @@ h2 {
 }
 
 .dark .save-btn:hover {
+  background-color: #27ae60;
+}
+
+.dark .export-btn {
+  background-color: #e67e22;
+}
+
+.dark .export-btn:hover {
+  background-color: #d35400;
+}
+
+.dark .share-btn {
+  background-color: #2ecc71;
+}
+
+.dark .share-btn:hover {
+  background-color: #27ae60;
+}
+
+.export-btn {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-btn:hover {
+  background-color: #d35400;
+}
+
+.share-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.share-btn:hover {
   background-color: #27ae60;
 }
 

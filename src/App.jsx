@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { jsPDF } from 'jspdf'
+import 'jspdf-autotable'
 
 function App() {
   const [name, setName] = useState('')
@@ -87,6 +89,96 @@ function App() {
     localStorage.setItem('savedProducts', JSON.stringify(updatedProducts))
   }
 
+  const handleExportPDF = () => {
+    try {
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.width;
+      
+      // Add company name and subtitle
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(24);
+      doc.setTextColor(26, 35, 126);
+      doc.text('VIZUALIZA', pageWidth / 2, 30, { align: 'center' });
+      
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text('Comunicação Visual', pageWidth / 2, 40, { align: 'center' });
+      
+      // Add document title
+      doc.setFontSize(20);
+      doc.setFont('helvetica', 'bold');
+      doc.text('ORÇAMENTO', pageWidth / 2, 60, { align: 'center' });
+      
+      // Add date
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      const currentDate = new Date().toLocaleDateString('pt-BR');
+      doc.text(`Data: ${currentDate}`, pageWidth - 20, 70, { align: 'right' });
+      
+      // Add table
+      const tableData = savedProducts.map(product => [
+        product.name,
+        product.quantity,
+        `R$ ${product.pricePerUnit}`,
+        `R$ ${product.finalPrice}`
+      ]);
+
+      doc.autoTable({
+        head: [['Produto', 'Quantidade', 'Preço por Unidade', 'Preço Final']],
+        body: tableData,
+        startY: 80,
+        theme: 'grid',
+        styles: { 
+          fontSize: 10,
+          cellPadding: 5,
+          lineColor: [200, 200, 200],
+          lineWidth: 0.1
+        },
+        headStyles: { 
+          fillColor: [26, 35, 126],
+          fontSize: 12,
+          halign: 'center',
+          fontStyle: 'bold'
+        },
+        bodyStyles: {
+          halign: 'center'
+        }
+      });
+
+      // Add total
+      const total = savedProducts.reduce((sum, product) => sum + parseFloat(product.finalPrice), 0);
+      doc.setFontSize(14);
+      doc.setFont('helvetica', 'bold');
+      doc.text(`Total: R$ ${total.toFixed(2)}`, pageWidth - 20, doc.lastAutoTable.finalY + 20, { align: 'right' });
+
+      // Add footer
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(128, 128, 128);
+      doc.text('Vizualiza Comunicação Visual', pageWidth / 2, doc.internal.pageSize.height - 20, { align: 'center' });
+      doc.text('Contato: (41) 99551-8116 | Email: gregory@vizualiza.com', pageWidth / 2, doc.internal.pageSize.height - 15, { align: 'center' });
+
+      doc.save('orcamento-vizualiza.pdf');
+    } catch (error) {
+      console.error('Erro ao gerar PDF:', error);
+      alert('Ocorreu um erro ao gerar o PDF. Por favor, tente novamente.');
+    }
+  };
+
+  const handleShareWhatsApp = () => {
+    let message = 'Orçamento:\n\n'
+    savedProducts.forEach(product => {
+      message += `${product.name}\nQuantidade: ${product.quantity}\nValor Total: R$ ${product.finalPrice}\n\n`
+    })
+    
+    const total = savedProducts.reduce((sum, product) => sum + parseFloat(product.finalPrice), 0)
+    message += `Total: R$ ${total.toFixed(2)}`
+    
+    const encodedMessage = encodeURIComponent(message)
+    window.open(`https://wa.me/?text=${encodedMessage}`, '_blank')
+  }
+
   const handleInputChange = (e, setter) => {
     const value = e.target.value
     setter(value)
@@ -151,6 +243,12 @@ function App() {
       <div className="button-container">
         <button onClick={handleCalculate} className="calculate-btn">Calcular</button>
         {calculatedPrice && <button onClick={handleSave} className="save-btn">Salvar</button>}
+        {savedProducts.length > 0 && (
+          <>
+            <button onClick={handleExportPDF} className="export-btn">Baixar PDF</button>
+            <button onClick={handleShareWhatsApp} className="share-btn">Enviar WhatsApp</button>
+          </>
+        )}
       </div>
       {calculatedPrice && (
         <div className="saved-products">
